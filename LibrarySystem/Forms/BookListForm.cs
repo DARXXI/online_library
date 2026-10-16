@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore;
+using LibrarySystem.Filters;
 using LibrarySystem.Models;
 using LibrarySystem.Repositories;
 
@@ -14,6 +15,17 @@ namespace LibrarySystem.Forms
         public BookListForm()
         {
             InitializeComponent();
+            cmbAvailability.SelectedIndex = 0;
+            numYearTo.Value = DateTime.Today.Year;
+
+            // Подписка после начальных значений, чтобы список не грузился несколько раз ещё до открытия окна.
+            // Любое изменение фильтра сразу обновляет таблицу.
+            txtSearch.TextChanged += Filter_Changed;
+            cmbAvailability.SelectedIndexChanged += Filter_Changed;
+            chkYear.CheckedChanged += ChkYear_CheckedChanged;
+            numYearFrom.ValueChanged += Filter_Changed;
+            numYearTo.ValueChanged += Filter_Changed;
+
             Load += BookListForm_Load;
         }
 
@@ -22,12 +34,50 @@ namespace LibrarySystem.Forms
             LoadBooks();
         }
 
+        private void Filter_Changed(object sender, EventArgs e)
+        {
+            LoadBooks();
+        }
+
+        private void ChkYear_CheckedChanged(object sender, EventArgs e)
+        {
+            numYearFrom.Enabled = chkYear.Checked;
+            numYearTo.Enabled = chkYear.Checked;
+            LoadBooks();
+        }
+
+        private void BtnResetFilter_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = string.Empty;
+            cmbAvailability.SelectedIndex = 0;
+            chkYear.Checked = false;
+        }
+
+        // Собирает фильтр из того, что сейчас выбрано на форме.
+        private BookFilter BuildFilter()
+        {
+            var filter = new BookFilter { Search = txtSearch.Text };
+
+            if (cmbAvailability.SelectedIndex == 1) filter.IsAvailable = true;
+            if (cmbAvailability.SelectedIndex == 2) filter.IsAvailable = false;
+
+            if (chkYear.Checked)
+            {
+                filter.YearFrom = (int)numYearFrom.Value;
+                filter.YearTo = (int)numYearTo.Value;
+            }
+
+            return filter;
+        }
+
         private void LoadBooks()
         {
             try
             {
-                dgvBooks.DataSource = repository.GetAll().OrderBy(b => b.Title).ToList();
+                var books = repository.Find(BuildFilter());
+                dgvBooks.DataSource = books;
                 ConfigureColumns();
+                lblCount.Text = "Найдено: " + books.Count;
             }
             catch (Exception ex)
             {

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using LibrarySystem.Data;
+using LibrarySystem.Filters;
 
 namespace LibrarySystem.Repositories
 {
@@ -15,6 +16,15 @@ namespace LibrarySystem.Repositories
             using (var context = new LibraryContext())
             {
                 return context.Set<T>().ToList();
+            }
+        }
+
+        // Поиск и фильтрация: условия из фильтра выполняются в базе, а не в памяти.
+        public List<T> Find(BaseFilter<T> filter)
+        {
+            using (var context = new LibraryContext())
+            {
+                return filter.Apply(context.Set<T>().AsNoTracking()).ToList();
             }
         }
 

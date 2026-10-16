@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore;
+using LibrarySystem.Filters;
 using LibrarySystem.Models;
 using LibrarySystem.Repositories;
 
@@ -14,6 +15,7 @@ namespace LibrarySystem.Forms
         public ReaderListForm()
         {
             InitializeComponent();
+            txtSearch.TextChanged += TxtSearch_TextChanged;
             Load += ReaderListForm_Load;
         }
 
@@ -22,12 +24,24 @@ namespace LibrarySystem.Forms
             LoadReaders();
         }
 
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            LoadReaders();
+        }
+
+        private void BtnResetFilter_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = string.Empty;
+        }
+
         private void LoadReaders()
         {
             try
             {
-                dgvReaders.DataSource = repository.GetAll().OrderBy(r => r.FullName).ToList();
+                var readers = repository.Find(new ReaderFilter { Search = txtSearch.Text });
+                dgvReaders.DataSource = readers;
                 ConfigureColumns();
+                lblCount.Text = "Найдено: " + readers.Count;
             }
             catch (Exception ex)
             {

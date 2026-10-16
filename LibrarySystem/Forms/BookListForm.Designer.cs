@@ -23,7 +23,19 @@ namespace LibrarySystem.Forms
             this.btnDelete = new System.Windows.Forms.Button();
             this.dgvBooks = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
+            this.lblSearch = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.lblAvailability = new System.Windows.Forms.Label();
+            this.cmbAvailability = new System.Windows.Forms.ComboBox();
+            this.chkYear = new System.Windows.Forms.CheckBox();
+            this.numYearFrom = new System.Windows.Forms.NumericUpDown();
+            this.lblYearDash = new System.Windows.Forms.Label();
+            this.numYearTo = new System.Windows.Forms.NumericUpDown();
+            this.btnResetFilter = new System.Windows.Forms.Button();
+            this.lblCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numYearFrom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numYearTo)).BeginInit();
             this.SuspendLayout();
             //
             // lblTitle
@@ -80,10 +92,10 @@ namespace LibrarySystem.Forms
             this.dgvBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBooks.MultiSelect = false;
             this.dgvBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvBooks.Location = new System.Drawing.Point(12, 52);
+            this.dgvBooks.Location = new System.Drawing.Point(12, 88);
             this.dgvBooks.Name = "dgvBooks";
             this.dgvBooks.RowHeadersWidth = 25;
-            this.dgvBooks.Size = new System.Drawing.Size(776, 497);
+            this.dgvBooks.Size = new System.Drawing.Size(776, 461);
             this.dgvBooks.TabIndex = 4;
             //
             // btnClose
@@ -97,11 +109,115 @@ namespace LibrarySystem.Forms
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             //
+            // lblSearch
+            //
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Location = new System.Drawing.Point(12, 57);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(42, 13);
+            this.lblSearch.Text = "Поиск:";
+            //
+            // txtSearch
+            //
+            this.txtSearch.Location = new System.Drawing.Point(60, 54);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(200, 20);
+            this.txtSearch.TabIndex = 6;
+            //
+            // lblAvailability
+            //
+            this.lblAvailability.AutoSize = true;
+            this.lblAvailability.Location = new System.Drawing.Point(272, 57);
+            this.lblAvailability.Name = "lblAvailability";
+            this.lblAvailability.Size = new System.Drawing.Size(53, 13);
+            this.lblAvailability.Text = "Наличие:";
+            //
+            // cmbAvailability
+            //
+            this.cmbAvailability.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAvailability.Items.AddRange(new object[] {
+            "Все",
+            "В наличии",
+            "Выданы"});
+            this.cmbAvailability.Location = new System.Drawing.Point(331, 54);
+            this.cmbAvailability.Name = "cmbAvailability";
+            this.cmbAvailability.Size = new System.Drawing.Size(100, 21);
+            this.cmbAvailability.TabIndex = 7;
+            //
+            // chkYear
+            //
+            this.chkYear.AutoSize = true;
+            this.chkYear.Location = new System.Drawing.Point(445, 56);
+            this.chkYear.Name = "chkYear";
+            this.chkYear.Size = new System.Drawing.Size(48, 17);
+            this.chkYear.TabIndex = 8;
+            this.chkYear.Text = "Год:";
+            this.chkYear.UseVisualStyleBackColor = true;
+            //
+            // numYearFrom
+            //
+            this.numYearFrom.Enabled = false;
+            this.numYearFrom.Location = new System.Drawing.Point(497, 54);
+            this.numYearFrom.Maximum = new decimal(new int[] { 2100, 0, 0, 0 });
+            this.numYearFrom.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            this.numYearFrom.Name = "numYearFrom";
+            this.numYearFrom.Size = new System.Drawing.Size(60, 20);
+            this.numYearFrom.TabIndex = 9;
+            this.numYearFrom.Value = new decimal(new int[] { 1900, 0, 0, 0 });
+            //
+            // lblYearDash
+            //
+            this.lblYearDash.AutoSize = true;
+            this.lblYearDash.Location = new System.Drawing.Point(561, 57);
+            this.lblYearDash.Name = "lblYearDash";
+            this.lblYearDash.Size = new System.Drawing.Size(13, 13);
+            this.lblYearDash.Text = "—";
+            //
+            // numYearTo
+            //
+            this.numYearTo.Enabled = false;
+            this.numYearTo.Location = new System.Drawing.Point(578, 54);
+            this.numYearTo.Maximum = new decimal(new int[] { 2100, 0, 0, 0 });
+            this.numYearTo.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            this.numYearTo.Name = "numYearTo";
+            this.numYearTo.Size = new System.Drawing.Size(60, 20);
+            this.numYearTo.TabIndex = 10;
+            this.numYearTo.Value = new decimal(new int[] { 2100, 0, 0, 0 });
+            //
+            // btnResetFilter
+            //
+            this.btnResetFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnResetFilter.Location = new System.Drawing.Point(686, 51);
+            this.btnResetFilter.Name = "btnResetFilter";
+            this.btnResetFilter.Size = new System.Drawing.Size(90, 27);
+            this.btnResetFilter.TabIndex = 11;
+            this.btnResetFilter.Text = "Сбросить";
+            this.btnResetFilter.UseVisualStyleBackColor = true;
+            this.btnResetFilter.Click += new System.EventHandler(this.BtnResetFilter_Click);
+            //
+            // lblCount
+            //
+            this.lblCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblCount.AutoSize = true;
+            this.lblCount.Location = new System.Drawing.Point(12, 568);
+            this.lblCount.Name = "lblCount";
+            this.lblCount.Size = new System.Drawing.Size(0, 13);
+            //
             // BookListForm
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.lblCount);
+            this.Controls.Add(this.btnResetFilter);
+            this.Controls.Add(this.numYearTo);
+            this.Controls.Add(this.lblYearDash);
+            this.Controls.Add(this.numYearFrom);
+            this.Controls.Add(this.chkYear);
+            this.Controls.Add(this.cmbAvailability);
+            this.Controls.Add(this.lblAvailability);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dgvBooks);
             this.Controls.Add(this.btnDelete);
@@ -113,6 +229,8 @@ namespace LibrarySystem.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Книги";
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numYearFrom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numYearTo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,5 +244,15 @@ namespace LibrarySystem.Forms
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView dgvBooks;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label lblAvailability;
+        private System.Windows.Forms.ComboBox cmbAvailability;
+        private System.Windows.Forms.CheckBox chkYear;
+        private System.Windows.Forms.NumericUpDown numYearFrom;
+        private System.Windows.Forms.Label lblYearDash;
+        private System.Windows.Forms.NumericUpDown numYearTo;
+        private System.Windows.Forms.Button btnResetFilter;
+        private System.Windows.Forms.Label lblCount;
     }
 }
