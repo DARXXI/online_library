@@ -37,9 +37,9 @@ namespace LibrarySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.numYearFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numYearTo)).BeginInit();
             this.SuspendLayout();
-            //
+            // 
             // lblTitle
-            //
+            // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.lblTitle.Location = new System.Drawing.Point(12, 15);
@@ -47,9 +47,9 @@ namespace LibrarySystem.Forms
             this.lblTitle.Size = new System.Drawing.Size(65, 25);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Книги";
-            //
+            // 
             // btnAdd
-            //
+            // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.Location = ((System.Drawing.Point)(new System.Drawing.Point(494, 12)));
             this.btnAdd.Name = "btnAdd";
@@ -58,9 +58,9 @@ namespace LibrarySystem.Forms
             this.btnAdd.Text = "Добавить";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
-            //
+            // 
             // btnEdit
-            //
+            // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEdit.Location = new System.Drawing.Point(590, 12);
             this.btnEdit.Name = "btnEdit";
@@ -69,9 +69,9 @@ namespace LibrarySystem.Forms
             this.btnEdit.Text = "Редактир.";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
-            //
+            // 
             // btnDelete
-            //
+            // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelete.Location = new System.Drawing.Point(686, 12);
             this.btnDelete.Name = "btnDelete";
@@ -80,11 +80,13 @@ namespace LibrarySystem.Forms
             this.btnDelete.Text = "Удалить";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
-            //
+            // 
             // dgvBooks
-            //
-            this.dgvBooks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            // 
+            this.dgvBooks.AllowUserToAddRows = false;
+            this.dgvBooks.AllowUserToDeleteRows = false;
+            this.dgvBooks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvBooks.AllowUserToAddRows = false;
             this.dgvBooks.AllowUserToDeleteRows = false;
@@ -97,9 +99,9 @@ namespace LibrarySystem.Forms
             this.dgvBooks.RowHeadersWidth = 25;
             this.dgvBooks.Size = new System.Drawing.Size(776, 461);
             this.dgvBooks.TabIndex = 4;
-            //
+            // 
             // btnClose
-            //
+            // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Location = new System.Drawing.Point(686, 560);
             this.btnClose.Name = "btnClose";
@@ -108,7 +110,7 @@ namespace LibrarySystem.Forms
             this.btnClose.Text = "Закрыть";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
-            //
+            // 
             // lblSearch
             //
             this.lblSearch.AutoSize = true;
@@ -196,15 +198,15 @@ namespace LibrarySystem.Forms
             this.btnResetFilter.Click += new System.EventHandler(this.BtnResetFilter_Click);
             //
             // lblCount
-            //
+            // 
             this.lblCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCount.AutoSize = true;
             this.lblCount.Location = new System.Drawing.Point(12, 568);
             this.lblCount.Name = "lblCount";
             this.lblCount.Size = new System.Drawing.Size(0, 13);
-            //
+            // 
             // BookListForm
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(800, 600);

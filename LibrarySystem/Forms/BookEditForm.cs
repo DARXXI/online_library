@@ -27,9 +27,9 @@ namespace LibrarySystem.Forms
 
             txtTitle.Text = book.Title;
             txtAuthor.Text = book.Author;
-            numYear.Value = book.Year;
-            dtpAddedDate.Value = book.AddedDate;
-            chkIsAvailable.Checked = book.IsAvailable;
+            numYear.Value = (decimal)book.Year;
+            //dtpAddedDate.Value = book.AddedDate;
+            //chkIsAvailable.Checked = book.IsAvailable;
         }
 
         private bool Validate(out string title, out string author)
@@ -67,12 +67,15 @@ namespace LibrarySystem.Forms
                 Title = title,
                 Author = author,
                 Year = (int)numYear.Value,
-                AddedDate = dtpAddedDate.Value.Date,
-                IsAvailable = chkIsAvailable.Checked,
             };
 
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void numYear_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -33,89 +33,102 @@ namespace LibrarySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.numYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
-            //
+            // 
             // lblTitle
-            //
+            // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Location = new System.Drawing.Point(12, 18);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(64, 15);
+            this.lblTitle.Size = new System.Drawing.Size(57, 13);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Название";
-            //
+            // 
             // txtTitle
-            //
+            // 
             this.txtTitle.Location = new System.Drawing.Point(150, 15);
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(250, 23);
+            this.txtTitle.Size = new System.Drawing.Size(250, 20);
             this.txtTitle.TabIndex = 1;
-            //
+            // 
             // lblAuthor
-            //
+            // 
             this.lblAuthor.AutoSize = true;
             this.lblAuthor.Location = new System.Drawing.Point(12, 51);
             this.lblAuthor.Name = "lblAuthor";
-            this.lblAuthor.Size = new System.Drawing.Size(39, 15);
+            this.lblAuthor.Size = new System.Drawing.Size(37, 13);
             this.lblAuthor.TabIndex = 2;
             this.lblAuthor.Text = "Автор";
-            //
+            // 
             // txtAuthor
-            //
+            // 
             this.txtAuthor.Location = new System.Drawing.Point(150, 48);
             this.txtAuthor.Name = "txtAuthor";
-            this.txtAuthor.Size = new System.Drawing.Size(250, 23);
+            this.txtAuthor.Size = new System.Drawing.Size(250, 20);
             this.txtAuthor.TabIndex = 3;
-            //
+            // 
             // lblYear
-            //
+            // 
             this.lblYear.AutoSize = true;
             this.lblYear.Location = new System.Drawing.Point(12, 84);
             this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(80, 15);
+            this.lblYear.Size = new System.Drawing.Size(70, 13);
             this.lblYear.TabIndex = 4;
             this.lblYear.Text = "Год издания";
-            //
+            // 
             // numYear
-            //
+            // 
             this.numYear.Location = new System.Drawing.Point(150, 82);
-            this.numYear.Maximum = new decimal(new int[] { 2100, 0, 0, 0 });
-            this.numYear.Minimum = new decimal(new int[] { 1000, 0, 0, 0 });
+            this.numYear.Maximum = new decimal(new int[] {
+            2100,
+            0,
+            0,
+            0});
+            this.numYear.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.numYear.Name = "numYear";
-            this.numYear.Size = new System.Drawing.Size(100, 23);
+            this.numYear.Size = new System.Drawing.Size(100, 20);
             this.numYear.TabIndex = 5;
-            this.numYear.Value = new decimal(new int[] { 2024, 0, 0, 0 });
-            //
+            this.numYear.Value = new decimal(new int[] {
+            2024,
+            0,
+            0,
+            0});
+            this.numYear.ValueChanged += new System.EventHandler(this.numYear_ValueChanged);
+            // 
             // lblAddedDate
-            //
+            // 
             this.lblAddedDate.AutoSize = true;
             this.lblAddedDate.Location = new System.Drawing.Point(12, 117);
             this.lblAddedDate.Name = "lblAddedDate";
-            this.lblAddedDate.Size = new System.Drawing.Size(113, 15);
+            this.lblAddedDate.Size = new System.Drawing.Size(100, 13);
             this.lblAddedDate.TabIndex = 6;
             this.lblAddedDate.Text = "Дата поступления";
-            //
+            // 
             // dtpAddedDate
-            //
+            // 
             this.dtpAddedDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpAddedDate.Location = new System.Drawing.Point(150, 113);
             this.dtpAddedDate.Name = "dtpAddedDate";
-            this.dtpAddedDate.Size = new System.Drawing.Size(150, 23);
+            this.dtpAddedDate.Size = new System.Drawing.Size(150, 20);
             this.dtpAddedDate.TabIndex = 7;
-            //
+            // 
             // chkIsAvailable
-            //
+            // 
             this.chkIsAvailable.AutoSize = true;
             this.chkIsAvailable.Checked = true;
             this.chkIsAvailable.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkIsAvailable.Location = new System.Drawing.Point(150, 149);
             this.chkIsAvailable.Name = "chkIsAvailable";
-            this.chkIsAvailable.Size = new System.Drawing.Size(84, 19);
+            this.chkIsAvailable.Size = new System.Drawing.Size(77, 17);
             this.chkIsAvailable.TabIndex = 8;
             this.chkIsAvailable.Text = "В наличии";
             this.chkIsAvailable.UseVisualStyleBackColor = true;
-            //
+            // 
             // btnSave
-            //
+            // 
             this.btnSave.Location = new System.Drawing.Point(150, 190);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 32);
@@ -123,9 +136,9 @@ namespace LibrarySystem.Forms
             this.btnSave.Text = "Сохранить";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
-            //
+            // 
             // btnCancel
-            //
+            // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(256, 190);
             this.btnCancel.Name = "btnCancel";
@@ -133,13 +146,13 @@ namespace LibrarySystem.Forms
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = true;
-            //
+            // 
             // errorProvider1
-            //
+            // 
             this.errorProvider1.ContainerControl = this;
-            //
+            // 
             // BookEditForm
-            //
+            // 
             this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
